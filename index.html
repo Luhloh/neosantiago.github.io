@@ -8,26 +8,26 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --white: #ffffff;
-    --off-white: #f8f7f4;
-    --ink: #1a1a1a;
-    --ink-muted: #6b6b6b;
-    --ink-faint: #b0aba2;
-    --accent: #2563eb;
-    --accent-light: #eff4ff;
+    --white: #1e2433;
+    --off-white: #252c3d;
+    --ink: #e8eaf0;
+    --ink-muted: #9aa3b8;
+    --ink-faint: #5a6480;
+    --accent: #60a5fa;
+    --accent-light: #1e2d4a;
     --accent-warm: #f59e0b;
-    --border: #e8e4de;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-    --shadow-md: 0 8px 32px rgba(0,0,0,0.08);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,0.10);
+    --border: #2e3751;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.25);
+    --shadow-md: 0 8px 32px rgba(0,0,0,0.35);
+    --shadow-lg: 0 20px 60px rgba(0,0,0,0.45);
     --radius: 16px;
     --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   }
-
+ 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
   html { scroll-behavior: smooth; font-size: 16px; }
-
+ 
   body {
     font-family: 'DM Sans', sans-serif;
     background: var(--white);
@@ -35,11 +35,11 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-
+ 
   /* ─── NAV ─── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(255,255,255,0.88);
+    background: rgba(30,36,51,0.92);
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
     padding: 0 5%;
@@ -72,7 +72,7 @@
   .nav-cta:hover { background: #1d4ed8; color: var(--white) !important; }
   .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
   .hamburger span { display: block; width: 24px; height: 2px; background: var(--ink); border-radius: 2px; transition: var(--transition); }
-
+ 
   /* ─── SECTIONS ─── */
   section { padding: 96px 5%; }
   .section-label {
@@ -111,7 +111,7 @@
   .hero-bg-shape {
     position: absolute; right: -80px; top: 80px;
     width: 560px; height: 560px;
-    background: radial-gradient(circle at 60% 40%, #eff4ff 0%, #f0fdf4 50%, transparent 80%);
+    background: radial-gradient(circle at 60% 40%, #1e2d4a 0%, #1a2535 50%, transparent 80%);
     border-radius: 50%;
     z-index: 0;
   }
@@ -457,7 +457,7 @@
     <div class="hero-right fade-in" style="transition-delay: 0.15s;">
       <div class="hero-card">
         <div class="hero-card-avatar">N</div>
-        <div class="hero-card-name">Neo Santiago</div>
+        <div class="hero-card-name">Neo Santiago &nbsp;&middot;&nbsp; 24</div>
         <div class="hero-card-sub">Freelancer · Philippines 🇵🇭</div>
         <div class="hero-card-stats">
           <div class="stat-box">
@@ -494,7 +494,7 @@
       </div>
     </div>
     <div class="about-text">
-      <p>I am a motivated student from the Philippines with a strong interest in digital work, AI tools, and online business. My journey began in 2017 when I started exploring cryptocurrency and online opportunities — an experience that sparked a lasting passion for technology and digital platforms.</p>
+      <p>I am a motivated student from the Philippines with a strong interest in digital work, AI tools, and online business. My journey began in 2017 when I started exploring cryptocurrency, play to earn games, NFTs, and online opportunities — an experience that sparked a lasting passion for technology and digital platforms.</p>
       <p>Today, I am actively learning AI workflow automation, AI-powered content tools, and modern automation systems to help digital businesses operate more efficiently and productively.</p>
       <p>While I'm still building my professional experience, I am committed to improving every single day. I bring enthusiasm, reliability, and a genuine drive to deliver results that matter to my clients.</p>
       <div class="about-qualities">
