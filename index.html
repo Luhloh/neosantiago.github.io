@@ -312,27 +312,92 @@
   .project-desc { font-size: 0.8rem; color: var(--ink-muted); }
   .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
 
-  /* ─── SERVICES ─── */
-  #services { background: var(--off-white); }
-  .services-wrapper { max-width: 1100px; margin: 0 auto; }
-  .services-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.5rem;
-  }
-  .service-card {
-    background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 2rem;
-    box-shadow: var(--shadow-sm);
-    transition: all var(--transition);
-  }
-  .service-card:hover { border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-2px); }
-  .service-icon {
-    width: 48px; height: 48px; border-radius: 12px;
-    background: var(--accent-light); display: flex; align-items: center;
-    justify-content: center; font-size: 1.25rem; margin-bottom: 1.25rem;
-  }
-  .service-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
-  .service-desc { font-size: 0.875rem; color: var(--ink-muted); }
+ /* ─── SERVICES ─── */
+#services { background: var(--off-white); }
+.services-wrapper { max-width: 1100px; margin: 0 auto; }
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.service-card {
+  position: relative;
+  background: #1a1a1a;
+  color: white;
+  padding: 20px;
+  border-radius: 16px;
+  overflow: visible;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {border-color: var(--accent); box-shadow: var(--shadow-md); transform: translateY(-5px); }
+.service-icon {
+  width: 48px; height: 48px; border-radius: 12px;
+  background: var(--accent-light); display: flex; align-items: center;
+  justify-content: center; font-size: 1.25rem; margin-bottom: 1.25rem;
+}
+
+.preview-image {
+  position: absolute;
+  top: 50%;
+  left: 105%;
+  transform: translateY(-50%);
+  width: 260px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.preview-image img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+}
+
+.service-card:hover .preview-image {
+  opacity: 1;
+  visibility: visible;
+  left: 100%;
+}
+
+.service-name { font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; }
+.service-desc { font-size: 0.875rem; color: var(--ink-muted); }
+/* ─── Image Modal ─── */
+.image-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+  display: block;
+  margin: auto;
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.preview-image img {
+  cursor: pointer;
+}
 
   /* ─── WHY HIRE ─── */
   #why { background: var(--ink); }
@@ -447,8 +512,9 @@
     <div class="hero-left fade-in">
       <div class="hero-badge">Available for Work · Philippines</div>
       <h1 class="hero-name">Hi, I'm <em>Neo Santiago</em></h1>
-      <p class="hero-role">Digital Freelancer &amp; AI Enthusiast</p>
-      <p class="hero-desc">A motivated student from the Philippines with a passion for AI tools, content creation, and digital solutions. Ready to bring value to your business.</p>
+      <p class="hero-role">Digital Content &amp; AI Tools Assistant </p>
+      <p class="hero-role">AI Workflow Automation &amp; AI-powered content creation.</p>
+      <p class="hero-desc">Helping businesses create content and automate digital tasks</p>
       <div class="hero-actions">
         <a href="#contact" class="btn btn-primary">💬 Work with Me</a>
         <a href="#projects" class="btn btn-outline">View My Work</a>
@@ -651,8 +717,20 @@
             <span class="tag accent">Crypto</span>
             <span class="tag">Research</span>
             <span class="tag">Content</span>
+          </div>       
           </div>
         </div>
+         <div class="project-card">
+        <div class="project-thumb pt-green">🤖</div>
+        <div class="project-body">
+          <div class="project-type">AI · Workflow Automation</div>
+          <div class="project-name">AI Workflow Automation Scripts</div>
+          <div class="project-desc">Automating repetitive tasks and workflows using AI tools to increase productivity and efficiency.</div>
+          <div class="project-tags">
+            <span class="tag accent">AI</span>
+            <span class="tag">Automation</span>
+            <span class="tag">Automated AI-Task </span>
+          </div>  
       </div>
     </div>
   </div>
@@ -697,6 +775,17 @@
         <div class="service-name">AI Content Generation Assistance</div>
         <div class="service-desc">Using AI tools to assist with content creation workflows, saving you time and effort.</div>
       </div>
+  <div class="service-card">
+  <div class="service-icon">🤖</div>
+  <div class="service-name">AI Workflow Automation</div>
+  <div class="service-desc">
+    Automating repetitive tasks and workflows using AI tools to increase productivity and efficiency.
+  </div>
+     <div class="preview-image inside-preview">
+    <img src="/workflow2-sample.PNG" alt="AI Workflow Automation Preview" onclick="openImage(this)">
+    <img src="/workflow1-sample.PNG" alt="AI Workflow Automation Preview" onclick="openImage(this)">
+  </div>
+</div>
     </div>
   </div>
 </section>
@@ -793,4 +882,19 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 </body>
+<div id="imageModal" class="image-modal" onclick="closeImage()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="expandedImg">
+  </div>
+
+  <script>
+    function openImage(img) {
+      document.getElementById("imageModal").style.display = "block";
+      document.getElementById("expandedImg").src = img.src;
+    }
+
+    function closeImage() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+  </script>
 </html>
